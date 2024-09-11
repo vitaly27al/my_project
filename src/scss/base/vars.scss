@@ -1,0 +1,16 @@
+:root {
+  // neturals colors
+  --netural-color-10: #fff;
+  --netural-color-20: #f5f5f5;
+  --netural-color-60: #18181d;
+  --netural-color-100: #1d1e25;
+  // container:
+  --container-padding: 15px;
+  --container-width: 1200px;
+}
+
+[data-theme='dark'] {
+  // neutural colors
+  --netural-color-100: #fff;
+  --netural-color-10: #1d1e25;
+}

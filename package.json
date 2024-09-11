@@ -20,5 +20,8 @@
     "stylelint-config-standard-scss": "^13.1.0",
     "stylelint-order": "^6.0.4",
     "vite": "^5.4.1"
+  },
+  "dependencies": {
+    "build": "^0.1.4"
   }
 }
