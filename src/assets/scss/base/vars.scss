@@ -21,6 +21,7 @@
 
   // transitions
   --transition: 0.2s ease-in-out;
+  --transition-head: all 0.4s ease-in-out;
 
   // z-index
   --z-index-0: -1;
@@ -28,6 +29,7 @@
   --z-index-2: 2;
   --z-index-3: 3;
   --z-index-4: 4;
+  --z-index-10: 10;
 }
 
 [data-theme='dark'] {
