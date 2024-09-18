@@ -4,7 +4,7 @@
   opacity: 0;
   visibility: hidden;
   transform: translateY(-80%);
-  transition: var(--transition-head);
+  transition: var(--transition);
 
   &.fixed {
     position: sticky;
@@ -90,6 +90,7 @@
     background-color: var(--netural-color-130);
     transform: translateY(8px);
     transition: background-color var(--transition);
+    cursor: pointer;
 
     &::before {
       content: '';
@@ -114,6 +115,11 @@
       line-height: 24px;
       color: var(--netural-color-140);
       transform: translateX(-50%);
+
+      @include small-tablet {
+        top: -20px;
+        font-size: 20px;
+      }
     }
 
     &-checkbox {
@@ -153,6 +159,7 @@
     color: var(--netural-color-100);
 
     @include small-tablet {
+      font-size: 20px;
       line-height: 300%;
     }
 
