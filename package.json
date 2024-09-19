@@ -28,6 +28,7 @@
     "vite-plugin-minify": "^2.0.0"
   },
   "dependencies": {
-    "build": "^0.1.4"
+    "build": "^0.1.4",
+    "swiper": "^11.1.14"
   }
 }
