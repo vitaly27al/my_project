@@ -1,5 +1,5 @@
 .overview {
-  padding: 100px 0;
+  padding: 160px 0 94px;
   background-color: var(--overview-bg-color);
 
   @include tablet {
@@ -23,7 +23,7 @@
     max-width: 660px;
     font-weight: 500;
     line-height: 150%;
-    color: #7e8492;
+    color: var(--netural-color-150);
 
     @include tablet {
       margin-bottom: 60px;
@@ -79,7 +79,7 @@
     &-descr {
       font-weight: 500;
       line-height: 26px;
-      color: #7e8492;
+      color: var(--netural-color-150);
     }
   }
 

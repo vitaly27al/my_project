@@ -5,7 +5,11 @@
     max-width: 1200px;
 
     @include mobile {
-      padding: 86px 40px;
+      padding: 86px 0 61px;
+    }
+
+    @include small-mobile {
+      padding: 86px 0 40px;
     }
   }
 
