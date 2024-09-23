@@ -1,20 +1,14 @@
-import '../assets/scss/main.scss';
+import '../assets/scss/pricing.scss';
 
 // components
 import { useTheme } from './components/theme';
 import { useBurger } from './components/burger';
 import { useHeader } from './components/fixed';
 import { useFooterAccordion } from './components/accordion';
-import {
-  usePartnersSlider,
-  useInsightSlider,
-  useTestimonialsSlider,
-} from './components/home/slider';
+import { usePriceSwitcher } from './components/pricing/priceSwitcher';
 
 useTheme();
 useBurger();
 useHeader();
-usePartnersSlider();
-useInsightSlider();
-useTestimonialsSlider();
 useFooterAccordion();
+usePriceSwitcher();

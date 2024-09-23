@@ -148,6 +148,15 @@
     }
   }
 
+  &_sublist {
+    @include mobile {
+      overflow: hidden;
+      max-height: 0px;
+      text-align: center;
+      transition: var(--transition);
+    }
+  }
+
   &_subitem {
     &:not(:last-child) {
       margin-bottom: 16px;
@@ -275,5 +284,75 @@
     font-weight: 500;
     line-height: 20px;
     color: #fff;
+  }
+}
+
+.accordion_item--opened {
+}
+
+// .accordion_list-control {
+//   @include flex-all-center;
+//   flex-direction: column;
+//   gap: 5px;
+
+//   @include mobile {
+//     cursor: pointer;
+//   }
+// }
+
+// .accordion-icon {
+//   position: relative;
+//   width: 10px;
+//   height: 2px;
+//   background-color: #fff;
+//   transform: translateY(-10px);
+// }
+
+// .accordion-icon::after {
+//   content: '';
+//   position: absolute;
+//   width: 10px;
+//   height: 2px;
+//   background-color: #fff;
+//   transform: rotate(90deg);
+// }
+
+.accordion_item--opened .accordion-icon {
+  overflow: hidden;
+}
+
+.accordion {
+  &_list {
+    &-control {
+      @include flex-all-center;
+
+      gap: 5px;
+
+      @include mobile {
+        cursor: pointer;
+      }
+    }
+  }
+
+  &-icon {
+    @include mobile {
+      position: relative;
+      width: 10px;
+      height: 2px;
+      background-color: #fff;
+      transform: translateY(-10px);
+    }
+
+    &::after {
+      @include mobile {
+        content: '';
+        position: absolute;
+        left: 0;
+        width: 10px;
+        height: 2px;
+        background-color: #fff;
+        transform: rotate(90deg);
+      }
+    }
   }
 }

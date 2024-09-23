@@ -71,13 +71,17 @@ export const useInsightSlider = () => {
 
 export const useTestimonialsSlider = () => {
   new Swiper('.testimonials_slider', {
-    modules: [Navigation, EffectFade],
+    modules: [Autoplay, Navigation, EffectFade],
     slidesPerView: 1,
     loop: true,
     spaceBetween: 10,
     effect: 'fade',
     fadeEffect: {
       crossFade: true,
+    },
+    speed: 1000,
+    autoplay: {
+      delay: 5000,
     },
 
     navigation: {
