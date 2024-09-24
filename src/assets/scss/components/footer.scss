@@ -151,7 +151,7 @@
   &_sublist {
     @include mobile {
       overflow: hidden;
-      max-height: 0px;
+      max-height: 0;
       text-align: center;
       transition: var(--transition);
     }
@@ -212,8 +212,8 @@
       }
 
       @include mobile {
-        flex-direction: column;
         gap: 20px;
+        flex-direction: column;
       }
     }
 
@@ -274,6 +274,7 @@
 
     &-link {
       transition: var(--transition);
+
       &:hover {
         opacity: 0.8;
       }
@@ -290,33 +291,6 @@
 .accordion_item--opened {
 }
 
-// .accordion_list-control {
-//   @include flex-all-center;
-//   flex-direction: column;
-//   gap: 5px;
-
-//   @include mobile {
-//     cursor: pointer;
-//   }
-// }
-
-// .accordion-icon {
-//   position: relative;
-//   width: 10px;
-//   height: 2px;
-//   background-color: #fff;
-//   transform: translateY(-10px);
-// }
-
-// .accordion-icon::after {
-//   content: '';
-//   position: absolute;
-//   width: 10px;
-//   height: 2px;
-//   background-color: #fff;
-//   transform: rotate(90deg);
-// }
-
 .accordion_item--opened .accordion-icon {
   overflow: hidden;
 }
@@ -325,7 +299,6 @@
   &_list {
     &-control {
       @include flex-all-center;
-
       gap: 5px;
 
       @include mobile {
