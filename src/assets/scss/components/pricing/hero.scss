@@ -144,6 +144,7 @@
     @include flex-all-between;
 
     @include tablet {
+      gap: 20px;
       flex-direction: column;
     }
 
