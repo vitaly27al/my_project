@@ -29,6 +29,8 @@
   },
   "dependencies": {
     "build": "^0.1.4",
-    "swiper": "^11.1.14"
+    "intl-tel-input": "^24.5.0",
+    "swiper": "^11.1.14",
+    "ymap3-components": "^1.1.6"
   }
 }

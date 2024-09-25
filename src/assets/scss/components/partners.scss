@@ -37,7 +37,7 @@
 
   &_list {
     @include flex-all-center;
-    gap: 10px 30px;
+    gap: 10px 20px;
     flex-wrap: wrap;
 
     @include small-tablet {
