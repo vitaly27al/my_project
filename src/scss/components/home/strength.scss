@@ -21,6 +21,7 @@
       gap: 72px;
       flex-wrap: wrap;
       justify-content: center;
+      margin-bottom: 50px;
       text-align: center;
     }
 
@@ -96,12 +97,6 @@
   &_list,
   &_img {
     margin-bottom: 80px;
-  }
-
-  &_list {
-    @include mobile {
-      margin-bottom: 50px;
-    }
   }
 
   &_img {

@@ -288,12 +288,7 @@
   }
 }
 
-.accordion_item--opened {
-}
-
-.accordion_item--opened .accordion-icon {
-  overflow: hidden;
-}
+// =========accordionFooter===========
 
 .accordion {
   &_list {
@@ -303,6 +298,16 @@
 
       @include mobile {
         cursor: pointer;
+      }
+    }
+  }
+
+  &_item {
+    &--opened {
+      .accordion {
+        &-icon {
+          overflow: hidden;
+        }
       }
     }
   }

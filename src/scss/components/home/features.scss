@@ -78,7 +78,7 @@
         font-weight: 500;
         font-size: 10.2px;
         line-height: 150%;
-        color: #7e8492;
+        color: var(--netural-color-150);
       }
 
       &-price {
@@ -111,7 +111,7 @@
         font-weight: 400;
         font-size: 8.74px;
         line-height: 11px;
-        color: #7e8492;
+        color: var(--netural-color-150);
       }
     }
   }
@@ -121,9 +121,6 @@
 
     @include mini-desktop {
       max-width: 992px;
-    }
-
-    @include tablet {
     }
   }
 
@@ -150,8 +147,8 @@
     }
 
     @include tablet {
-      margin-left: auto;
       margin-right: auto;
+      margin-left: auto;
     }
   }
 
@@ -181,7 +178,7 @@
       padding-right: 19px;
       width: 24px;
       height: 24px;
-      background: url('../icons/features-list-iconsvg.svg');
+      background: url('../assets/icons/features-list-iconsvg.svg');
     }
   }
 }

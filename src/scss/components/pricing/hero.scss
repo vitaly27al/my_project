@@ -223,7 +223,7 @@
         margin-right: 10px;
         width: 19.2px;
         height: 19.2px;
-        background: url('../icons/pricing-list-icon.svg');
+        background: url('../assets/icons/pricing-list-icon.svg');
         transform: translateY(2px);
       }
 
@@ -240,7 +240,7 @@
         color: var(--netural-color-150);
 
         &::before {
-          background: url('../icons/pricing-list-inaccess-icon.svg');
+          background: url('../assets/icons/pricing-list-inaccess-icon.svg');
         }
       }
     }
