@@ -25,7 +25,7 @@ export const useMap = () => {
     );
 
     // Координаты центра карты
-    const CENTER_COORDINATES = [53.661955, 14.971384];
+    const CENTER_COORDINATES = [134.098904, -22.625953];
     // координаты метки на карте
     const MARKER_COORDINATES = [134.098904, -22.625953];
 
