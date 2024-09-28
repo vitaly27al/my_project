@@ -24,6 +24,9 @@
               name="First-name"
               required
               placeholder="First name"
+              pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+              oninput="this.value = this.value.replace(/[^a-zA-Z0-9._%+-@]/g, '');"
+              title="Please enter a valid first with only letters, numbers, and allowed characters."
             />
           </label>
           <label class="get-started_form-label">
@@ -36,6 +39,8 @@
               name="Last-name"
               required
               placeholder="Last name"
+              pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+              oninput="this.value = this.value.replace(/[^a-zA-Z0-9._%+-@]/g, '');"
             />
           </label>
         </div>
@@ -47,6 +52,8 @@
             name="email"
             required
             placeholder="you@company.com"
+            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+            oninput="this.value = this.value.replace(/[^a-zA-Z0-9._%+-@]/g, '');"
           />
         </label>
         <label class="get-started_form-label">
