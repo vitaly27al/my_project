@@ -6,18 +6,18 @@ export const usePriceSwitcher = () => {
   const priceText = document.querySelectorAll('[data-price="text"]');
   const priceList = {
     starter: {
-      default: 120,
-      yearlySale: 120 * 12 * 0.8,
+      default: '$' + 120,
+      yearlySale: '$' + 120 * 12 * 0.8,
     },
 
     popular: {
-      default: 1680,
-      yearlySale: 1400 * 12 * 0.8,
+      default: '$' + 1680,
+      yearlySale: '$' + 1400 * 12 * 0.8,
     },
 
     enterprise: {
-      default: 2520,
-      yearlySale: 2100 * 12 * 0.8,
+      default: '$' + 2520,
+      yearlySale: '$' + 2100 * 12 * 0.8,
     },
 
     priceTime: {
