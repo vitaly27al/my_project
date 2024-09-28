@@ -1,0 +1,77 @@
+.quote {
+  &_container {
+    @include flex-all-between;
+    gap: 60px;
+    border-top: 1px solid var(--netural-color-30);
+    border-bottom: 1px solid var(--netural-color-30);
+    padding: 80px 15px;
+
+    @include tablet {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    @include small-tablet {
+      gap: 30px;
+    }
+
+    @include mobile {
+      gap: 20px;
+    }
+
+    &::before {
+      top: -400px;
+
+      @include mini-desktop {
+        top: -300px;
+      }
+
+      @include tablet {
+        top: -200px;
+      }
+
+      @include small-tablet {
+        top: -50px;
+      }
+
+      @include mobile {
+        top: 0;
+      }
+    }
+
+    &::after {
+      bottom: -450px;
+
+      @include mini-desktop {
+        bottom: -350px;
+      }
+
+      @include tablet {
+        bottom: -200px;
+      }
+
+      @include small-tablet {
+        bottom: -100px;
+      }
+
+      @include mobile {
+        bottom: 0;
+      }
+    }
+  }
+
+  &_title {
+    max-width: 480px;
+    font-weight: 600;
+    line-height: 120%;
+    letter-spacing: -2px;
+    color: var(--netural-color-100);
+  }
+
+  &_descr {
+    max-width: 480px;
+    font-weight: 600;
+    line-height: 150%;
+    color: var(--netural-color-100);
+  }
+}

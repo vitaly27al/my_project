@@ -9,7 +9,7 @@ import {
   usePartnersSlider,
   useInsightSlider,
   useTestimonialsSlider,
-} from './components/home/slider';
+} from './components/slider';
 
 useTheme();
 useBurger();

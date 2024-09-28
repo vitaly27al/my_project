@@ -90,3 +90,58 @@ export const useTestimonialsSlider = () => {
     },
   });
 };
+
+export const useAboutHeroSlider = () => {
+  new Swiper('.hero_slider', {
+    slidesPerView: 1,
+    spaceBetween: 22,
+    loop: true,
+    centeredSlides: false,
+
+    breakpoints: {
+      381: {
+        slidesPerView: 1.2,
+      },
+      577: {
+        slidesPerView: 1.4,
+        centeredSlides: true,
+      },
+      769: {
+        slidesPerView: 2,
+        centeredSlides: false,
+      },
+      993: {
+        slidesPerView: 2.3,
+        spaceBetween: 32,
+      },
+    },
+  });
+};
+
+export const useAboutTeamSlider = () => {
+  new Swiper('.team_slider', {
+    slidesPerView: 1,
+    centeredSlides: false,
+    spaceBetween: 16,
+    initialSlide: 1,
+
+    breakpoints: {
+      1201: {
+        slidesPerView: 'auto',
+        centeredSlides: false,
+        initialSlide: 0,
+        spaceBetween: 32,
+      },
+      993: {
+        slidesPerView: 'auto',
+        initialSlide: 1,
+        spaceBetween: 32,
+        centeredSlides: true,
+      },
+      577: {
+        slidesPerView: 'auto',
+        centeredSlides: true,
+      },
+    },
+  });
+};

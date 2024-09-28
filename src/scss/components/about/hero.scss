@@ -1,0 +1,119 @@
+.hero {
+  padding: 114px 0 160px;
+
+  @include mobile {
+    padding: 60px 0 80px;
+  }
+
+  @include small-mobile {
+    padding: 40px 0 60px;
+  }
+
+  &_title {
+    margin-bottom: 118px;
+    max-width: 959px;
+    font-weight: 700;
+    line-height: 120%;
+    letter-spacing: -3px;
+    color: var(--netural-color-100);
+
+    @include tablet {
+      margin-bottom: 68px;
+      text-align: center;
+    }
+
+    & br {
+      @include tablet {
+        display: none;
+      }
+    }
+  }
+
+  &_info {
+    @include flex-all-between;
+    gap: 60px 30px;
+    flex-wrap: wrap;
+    margin-bottom: 135px;
+
+    @include tablet {
+      flex-direction: column;
+    }
+
+    &-descr {
+      max-width: 780px;
+
+      &::before {
+        transform: translateY(-84px);
+      }
+
+      @include tablet {
+        text-align: center;
+      }
+    }
+
+    &-link {
+      @include flex-all-center;
+      position: relative;
+      margin-right: 44px;
+      width: 127px;
+      height: 126px;
+      transition: transform var(--transition);
+
+      @include mini-desktop {
+        margin-right: 0;
+      }
+
+      &:hover {
+        transform: scale(1.1);
+      }
+
+      &-text {
+        position: absolute;
+        inset: 0;
+        animation: rotate-text 10s linear infinite;
+      }
+    }
+  }
+  &_list {
+  }
+
+  &_item {
+    &-title {
+      font-size: 32px;
+      font-weight: 600;
+      line-height: 150%;
+      letter-spacing: -1%;
+      color: var(--netural-color-100);
+    }
+
+    &-descr {
+      margin-bottom: 32px;
+      font-weight: 500;
+      line-height: 32px;
+      color: var(--netural-color-150);
+    }
+
+    &-btn {
+      display: inline-block;
+      padding: 16px 32px;
+      font-weight: 700;
+      line-height: 24px;
+      color: var(--netural-color-10);
+      background-color: var(--netural-color-100);
+    }
+  }
+}
+
+@keyframes rotate-text {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.body[data-theme='light'] .hero_info-link {
+  filter: invert(100%);
+}

@@ -1,0 +1,116 @@
+.team {
+  padding: 160px 0 165px;
+
+  @include tablet {
+    padding: 80px 0;
+  }
+
+  &_title {
+    margin-bottom: 24px;
+    max-width: 700px;
+    font-weight: 600;
+    line-height: 120%;
+    letter-spacing: -2px;
+    color: var(--netural-color-100);
+
+    @include tablet {
+      max-width: none;
+      text-align: center;
+    }
+  }
+
+  &_descr {
+    margin-bottom: 80px;
+    max-width: 534px;
+    font-weight: 500;
+    line-height: 32px;
+    color: var(--netural-color-150);
+
+    @include tablet {
+      max-width: none;
+      text-align: center;
+    }
+  }
+
+  &_slider {
+    margin-bottom: 100px;
+  }
+
+  &_item {
+    max-width: 379px;
+    &-img {
+      margin-bottom: 16px;
+    }
+
+    &-info {
+      @include flex-justify-between;
+      align-items: start;
+    }
+
+    &-title {
+      margin-bottom: 8px;
+      font-weight: 600;
+      line-height: 150%;
+      color: var(--netural-color-100);
+    }
+
+    &-text {
+      font-weight: 500;
+      line-height: 150%;
+      color: var(--netural-color-150);
+    }
+
+    &-socials {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+
+      &-link {
+        @include flex-all-center;
+        border-radius: 50%;
+        width: 32px;
+        height: 32px;
+        background-color: var(--success-color-70);
+
+        & svg path {
+          fill: var(--socials-bg-color);
+        }
+      }
+    }
+  }
+
+  &_join {
+    @include flex-justify-between;
+
+    @include tablet {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    &-title {
+      max-width: 626px;
+      font-weight: 600;
+      line-height: 120%;
+      letter-spacing: -2px;
+      color: var(--netural-color-100);
+    }
+
+    &-descr {
+      margin-bottom: 24px;
+      max-width: 506px;
+      font-weight: 500;
+      line-height: 32px;
+      color: var(--netural-color-150);
+    }
+
+    &-link {
+      font-weight: 600;
+      line-height: 24px;
+      letter-spacing: 0px;
+      text-align: left;
+      color: var(--netural-color-100);
+    }
+  }
+}

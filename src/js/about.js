@@ -1,18 +1,15 @@
-import '/scss/contact.scss';
+import '/scss/about.scss';
 
 // components
 import { useTheme } from './components/theme';
 import { useBurger } from './components/burger';
 import { useHeader } from './components/fixed';
-import { useMap } from './components/contact/map';
-import { usePhone } from './components/contact/phone';
-import { usePartnersSlider } from './components/slider';
 import { useFooterAccordion } from './components/accordion';
+import { useAboutHeroSlider, useAboutTeamSlider } from './components/slider';
 
 useTheme();
 useBurger();
 useHeader();
-useMap();
-usePhone();
-usePartnersSlider();
 useFooterAccordion();
+useAboutHeroSlider();
+useAboutTeamSlider();
