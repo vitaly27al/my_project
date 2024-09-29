@@ -137,10 +137,21 @@
   }
 
   &-item {
+    @include mobile {
+      align-self: start;
+      padding: 0 15px;
+      background-color: var(--netural-color-70);
+      border-radius: 20px;
+    }
+
     &-title {
       margin-bottom: 24px;
       font-weight: 700;
       line-height: 24px;
+
+      @include mobile {
+        margin: 10px 0;
+      }
     }
 
     @include mobile {
@@ -298,6 +309,7 @@
 
       @include mobile {
         cursor: pointer;
+        justify-content: space-between;
       }
     }
   }
@@ -318,7 +330,6 @@
       width: 10px;
       height: 2px;
       background-color: #fff;
-      transform: translateY(-10px);
     }
 
     &::after {

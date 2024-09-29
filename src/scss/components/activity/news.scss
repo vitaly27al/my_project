@@ -1,0 +1,68 @@
+.news {
+  padding: 120px 0;
+  background: #1d1e25;
+
+  @include small-tablet {
+    padding: 60px 0;
+  }
+
+  &_container {
+    display: grid;
+    gap: 159px 32px;
+    grid-template-columns: repeat(2, 1fr);
+
+    @include small-tablet {
+      gap: 40px;
+      justify-items: center;
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &_card {
+    max-width: 584px;
+
+    &:last-child {
+      margin-top: -245px;
+
+      @include small-tablet {
+        margin-top: 0;
+      }
+    }
+
+    &-img {
+      margin-bottom: 24px;
+    }
+
+    &-title {
+      margin-bottom: 24px;
+      font-weight: 600;
+      line-height: 120%;
+      color: #fff;
+
+      @include small-tablet {
+        text-align: center;
+      }
+
+      &--decor {
+        max-width: 442px;
+        text-decoration-line: underline;
+
+        @include small-tablet {
+          max-width: max-content;
+        }
+      }
+    }
+
+    &-descr {
+      max-width: 515px;
+      font-weight: 500;
+      line-height: 32px;
+      color: var(--netural-color-150);
+
+      @include small-tablet {
+        max-width: max-content;
+        text-align: center;
+      }
+    }
+  }
+}

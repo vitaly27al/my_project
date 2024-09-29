@@ -145,3 +145,40 @@ export const useAboutTeamSlider = () => {
     },
   });
 };
+
+export const useActivitySlider = () => {
+  new Swiper('.hero_slider', {
+    slidesPerView: 'auto',
+    spaceBetween: 16,
+    initialSlide: 0,
+
+    breakpoints: {
+      1201: {
+        slidesPerView: 'auto',
+        initialSlide: 0,
+        spaceBetween: 32,
+      },
+    },
+  });
+};
+export const useArticlesSlider = () => {
+  new Swiper('.articles_slider', {
+    modules: [Navigation],
+    slidesPerView: 'auto',
+    spaceBetween: 16,
+    initialSlide: 0,
+
+    breakpoints: {
+      1201: {
+        slidesPerView: 'auto',
+        initialSlide: 0,
+        spaceBetween: 32,
+      },
+    },
+
+    navigation: {
+      nextEl: '.articles_btn--next',
+      prevEl: '.articles_btn--prev',
+    },
+  });
+};

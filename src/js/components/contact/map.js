@@ -1,196 +1,151 @@
 export const useMap = () => {
-  window.map = null;
   const themeTarget = document.querySelector('[data-theme]');
-  const themeTargetDataset = themeTarget.dataset;
-
   const theme = localStorage.getItem('theme') || 'light';
+
+  const themeTargetDataset = themeTarget.dataset;
   themeTargetDataset.theme = theme;
 
-  // Главная функция, вызывается при запуске скрипта
-  main();
-  async function main() {
-    // ожидание загрузки модулей
+  async function initMap() {
     await ymaps3.ready;
-    const {
-      YMap,
-      YMapDefaultSchemeLayer,
-      YMapControls,
-      YMapDefaultFeaturesLayer,
-      YMapMarker,
-    } = ymaps3;
 
-    // Импорт модулей для элементов управления на карте
-    const { YMapZoomControl, YMapGeolocationControl } = await ymaps3.import(
-      '@yandex/ymaps3-controls@0.0.1',
-    );
+    const { YMap, YMapDefaultSchemeLayer, YMapDefaultFeaturesLayer } = ymaps3;
 
-    // Координаты центра карты
-    const CENTER_COORDINATES = [134.098904, -22.625953];
-    // координаты метки на карте
-    const MARKER_COORDINATES = [134.098904, -22.625953];
-
-    // Объект с параметрами центра и зумом карты
-    const LOCATION = { center: CENTER_COORDINATES, zoom: 2 };
-
-    // Создание объекта карты
     const map = new YMap(document.getElementById('map'), {
-      location: LOCATION,
+      location: {
+        center: [110, 1],
+        zoom: 2,
+      },
     });
 
-    // Добавление слоев на карту
-    const layerLight = new YMapDefaultSchemeLayer({
-      customization: [
-        // Делаем прозрачными все геометрии водных объектов.
-        {
-          tags: {
-            all: ['water'],
-          },
-          stylers: [
-            {
-              color: '#FFF',
-            },
-          ],
-        },
-        {
-          elements: 'label',
-          stylers: [
-            {
-              visibility: 'off',
-            },
-          ],
-        },
-        {
-          tags: {
-            all: ['landscape'],
-          },
-          stylers: [
-            {
-              color: '#acacb9',
-            },
-          ],
-        },
-      ],
-    });
+    const featuresLayer = new YMapDefaultFeaturesLayer();
+    map.addChild(featuresLayer);
 
-    const layerDark = new YMapDefaultSchemeLayer({
-      customization: [
+    function addCustomMarker() {
+      const content = document.createElement('section');
+      const marker = new ymaps3.YMapMarker(
         {
-          tags: {
-            all: ['water'],
-          },
-          stylers: [
-            {
-              color: '#1d1e25',
-            },
-          ],
+          coordinates: [130, -25],
+          draggable: false,
         },
-        {
-          elements: 'label',
-          stylers: [
-            {
-              visibility: 'off',
-            },
-          ],
-        },
-        {
-          tags: {
-            all: ['landscape'],
-          },
-          stylers: [
-            {
-              color: '#acacb9',
-            },
-          ],
-        },
-      ],
-    });
-
-    if (theme == 'dark') {
-      map.addChild(layerDark);
-    } else {
-      map.addChild(layerLight);
+        content,
+      );
+      map.addChild(marker);
+      content.innerHTML = `<div class="hero_map-marker">
+      <div class="hero_map-marker-info">
+        <h4 class="hero_map-marker-title">Yogja, INA</h4>
+        <p class="hero_map-marker-location">100 Smith Street Collingwood VIC 3066 AU</p>
+      </div>
+      <img class="hero_map-marker-icon" src="./assets/icons/map-marker.svg" width="54" height="54" alt="marker in map" />
+      </div>`;
     }
 
-    map.addChild(new YMapDefaultFeaturesLayer());
+    function layerDark() {
+      const layerDark = new YMapDefaultSchemeLayer({
+        customization: [
+          {
+            tags: {
+              all: ['water'],
+            },
+            stylers: [
+              {
+                color: '#1d1e25',
+              },
+            ],
+          },
+          {
+            elements: 'label',
+            stylers: [
+              {
+                visibility: 'off',
+              },
+            ],
+          },
+          {
+            tags: {
+              all: ['landscape'],
+            },
+            stylers: [
+              {
+                color: '#acacb9',
+              },
+            ],
+          },
+        ],
+      });
+      map.addChild(layerDark);
+      window.layerDark = layerDark;
+    }
 
-    // Добавление элементов управления на карту
-    map.addChild(
-      new YMapControls({ position: 'right' }).addChild(new YMapZoomControl({})),
-    );
-    map.addChild(
-      new YMapControls({ position: 'top right' }).addChild(
-        new YMapGeolocationControl({}),
-      ),
-    );
+    function layerLight() {
+      const layerLight = new YMapDefaultSchemeLayer({
+        customization: [
+          {
+            tags: {
+              all: ['water'],
+            },
+            stylers: [
+              {
+                color: '#FFF',
+              },
+            ],
+          },
+          {
+            elements: 'label',
+            stylers: [
+              {
+                visibility: 'off',
+              },
+            ],
+          },
+          {
+            tags: {
+              all: ['landscape'],
+            },
+            stylers: [
+              {
+                color: '#acacb9',
+              },
+            ],
+          },
+        ],
+      });
+      map.addChild(layerLight);
+      window.layerLight = layerLight;
+    }
 
-    // Создание маркера
-    const el = document.createElement('img');
-    el.className = 'hero_map-container-marker';
-    el.src = './assets/icons/map-marker.svg';
-    // При клике на маркер меняем центр карты на LOCATION с заданным duration
-    el.onclick = () => map.update({ location: { ...LOCATION, duration: 400 } });
+    function removeLayers() {
+      if (window.layerDark) {
+        map.removeChild(window.layerDark);
+        window.layerDark = null;
+      }
+      if (window.layerLight) {
+        map.removeChild(window.layerLight);
+        window.layerLight = null;
+      }
+    }
 
-    // Создание заголовка маркера
-    const markerTitle = document.createElement('h5');
-    markerTitle.className = 'hero_map-container-text-title';
-    markerTitle.innerHTML = 'Yogja, INA';
+    function switchMapTheme(newTheme) {
+      removeLayers();
+      if (newTheme === 'dark') {
+        layerDark();
+      } else {
+        layerLight();
+      }
+    }
 
-    const markerDescr = document.createElement('p');
-    markerDescr.className = 'hero_map-container-text-descr';
-    markerDescr.innerHTML = '100 Smith Street Collingwood VIC 3066 AU';
+    if (theme === 'dark') {
+      layerDark();
+    } else {
+      layerLight();
+    }
 
-    const markerText = document.createElement('div');
-    markerText.className = 'hero_map-container-text';
-    markerText.appendChild(markerTitle);
-    markerText.appendChild(markerDescr);
+    addCustomMarker();
 
-    // Контейнер для элементов маркера
-    const imgContainer = document.createElement('div');
-    imgContainer.className = 'hero_map-container';
-    imgContainer.appendChild(markerText);
-    imgContainer.appendChild(el);
-
-    // Добавление центра карты
-    map.addChild(new YMapMarker({ coordinates: CENTER_COORDINATES }));
-
-    // Добавление маркера на карту
-    map.addChild(
-      new YMapMarker({ coordinates: MARKER_COORDINATES }, imgContainer),
-    );
+    window.YMapDefaultSchemeLayer = YMapDefaultSchemeLayer;
+    window.map = map;
+    window.removeLayers = removeLayers;
+    window.switchMapTheme = switchMapTheme;
   }
-};
 
-// const layer = new YMapDefaultSchemeLayer({
-//   customization: [
-//     // Делаем прозрачными все геометрии водных объектов.
-//     {
-//       tags: {
-//         all: ['water'],
-//       },
-//       stylers: [
-//         {
-//           color: '#FFF',
-//         },
-//       ],
-//     },
-//     {
-//       elements: 'label',
-//       stylers: [
-//         {
-//           visibility: 'off',
-//         },
-//       ],
-//     },
-//     {
-//       tags: {
-//         all: ['landscape'],
-//       },
-//       stylers: [
-//         {
-//           color: '#acacb9',
-//         },
-//       ],
-//     },
-//   ],
-// });
-// map.addChild(layer);
+  initMap();
+};
