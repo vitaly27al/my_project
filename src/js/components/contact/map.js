@@ -1,3 +1,4 @@
+import mapMarker from '/assets/icons/map-marker.svg';
 export const useMap = () => {
   const themeTarget = document.querySelector('[data-theme]');
   const theme = localStorage.getItem('theme') || 'light';
@@ -35,7 +36,7 @@ export const useMap = () => {
         <h4 class="hero_map-marker-title">Yogja, INA</h4>
         <p class="hero_map-marker-location">100 Smith Street Collingwood VIC 3066 AU</p>
       </div>
-      <img class="hero_map-marker-icon" src="./assets/icons/map-marker.svg" width="54" height="54" alt="marker in map" />
+      <img class="hero_map-marker-icon" src="${mapMarker}" width="54" height="54" alt="marker in map" />
       </div>`;
     }
 
